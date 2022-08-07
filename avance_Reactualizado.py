@@ -11,7 +11,7 @@ def reproductor(cancion):
     pygame.mixer.music.play(1)
 
 def hacer_saludo():
-    ly_saludo = [  [sg.Text("Este programa de ayudará a identificar las notas musicales en el pentagrama", text_color = "Black")],
+    ly_saludo = [  [sg.Text("Este programa te ayudará a identificar las notas musicales en el pentagrama", text_color = "Black")],
             [sg.Text("Introduce tu nombre: "), sg.Input()],
             [sg.Button("OK")], [sg.Button("Salir")]
             ]
@@ -57,8 +57,6 @@ def hacer_juego_fa():
         ]
     return sg.Window("Juego en clave de fa", ly_fa)
 
-def a_inicio():
-    pass
 # Creación de las ventanas
 saludo = hacer_saludo()
 inicio = hacer_inicio()
@@ -72,45 +70,37 @@ try:
         event, values = saludo.read()
         if event == "Salir"  or event == sg.WIN_CLOSED:
             break
-        if event == "OK":
+        elif event == "OK":
             sg.popup_ok("Bienvenido/a " + values[0] + ". ¿Estás listo/a para empezar a aprender?")
             saludo.close()
             while True:
                 event, values = inicio.read()
                 if event == "Salir de la aplicación"  or event == sg.WIN_CLOSED:
                     break
-                if event == "Aprende las notas musicales":
+                elif event == "Aprende las notas musicales":
                     inicio.close()
                     while True:
                         event, values = aprender.read()
                         if event == "Salir de la aplicación" or event == sg.WIN_CLOSED:
                             break
-                        if event == "Regresar al menú inicio":
-                            aprender.close()
-                            inicio = hacer_inicio() 
-                            event, values = inicio.read()
                 elif event == "Pon en práctica tus conocimientos":
                     inicio.close()
                     while True:
                         event, values = elegir.read()
                         if event == "Salir de la aplicación" or event == sg.WIN_CLOSED:
-                            break
-                        if event == "Regresar al menú inicio":
-                            elegir.close()
-                            inicio = hacer_inicio()
-                            x = a_inicio()  #era error? weno si lo era, lo puse arriba esa funcion con un pass 
-                        if event == "sol":
+                            break 
+                        elif event == "sol":
                             elegir.close()
                             while True:
                                 event, values = juego_sol.read()
                                 if event == 'REPRODUCIR':
                                     reproductor('do.wav')
-                                if event == 'Cancel' or sg.WIN_CLOSED:
+                                elif event == 'Cancel' or sg.WIN_CLOSED:
                                     break
                                 elif values[1] == '':
                                     pass
                                 elif values[1] != 'do':
-                                    sg.popup_ok('Intentalo de nuevo')
+                                    sg.popup_ok('Inténtalo de nuevo')
                                 else:
                                     sg.popup_ok('Felicitaciones')
                         elif event =="fa":
