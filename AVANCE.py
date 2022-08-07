@@ -21,7 +21,7 @@ class Aplicacion():
         self.myframe.pack()
         self.myframe.config(bg='gray', width='300', height='300', cursor='cross', bd=20 ,relief='groove')
        
-        self.music=Button(self.raiz, text='M', command=self.reproductor('do.wav'))
+        self.music=Button(self.myframe, text='M', command=self.reproductor('do.wav'))
         self.music.place(x=0,y=0)
         self.music.config(bg='lightgray', fg='black')
        
