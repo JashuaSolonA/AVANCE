@@ -4,7 +4,7 @@ sg.theme("DarkBlue8") # Diseño de la ventana
 
 # Funciones para crear las ventanas
 def hacer_saludo():
-    ly_saludo = [  [sg.Text("Aprende a leer el pentagrama")],
+    ly_saludo = [  [sg.Text("Este programa de ayudará a identificar las notas musicales en el pentagrama", text_color = "Black")],
             [sg.Text("Introduce tu nombre: "), sg.Input()],
             [sg.Button("OK")], [sg.Button("Salir")]
             ]
@@ -18,8 +18,9 @@ def hacer_inicio():
     return sg.Window("Menú inicio", ly_inicio)
 
 def hacer_aprender():
-    ly_aprender = [ [sg.Text("Mostrar el pentagrama con las notas musicales ubicadas, tanto en clave de sol como de fa")],
+    ly_aprender = [ [sg.Text("Estas son las notas ubicadas en el pentagrama en clave de sol:")],
             [sg.Image("clave_de_sol.png")],
+            [sg.Text("Estas son las notas ubicadas en el pentagrama en clave de fa:")],
             [sg.Image("clave_de_fa.png")],
             [sg.Button("Salir de la aplicación")]
             ]
@@ -52,40 +53,6 @@ aprender = hacer_aprender()
 elegir = hacer_elegir()
 juego_sol = hacer_juego_sol()
 juego_fa = hacer_juego_fa()
-
-#Def
-def menu_inicio():
-    while True:
-        event, values = inicio.read()
-        if event == "Salir de la aplicación"  or event == sg.WIN_CLOSED:
-            break
-        if event == "Aprende las notas musicales":
-            inicio.close()
-            while True:
-                event, values = aprender.read()
-                if event == "Salir de la aplicación" or event == sg.WIN_CLOSED:
-                    break
-        elif event == "Pon en práctica tus conocimientos":
-            inicio.close()
-            while True:
-                event, values = elegir.read()
-                if event == "Salir de la aplicación" or event == sg.WIN_CLOSED:
-                    break
-                elif event == "sol":
-                    elegir.close()
-                    while True:
-                        event, values = juego_sol.read()
-                        if event == sg.WIN_CLOSED:
-                            break
-                elif event =="fa":
-                    elegir.close()
-                    while True:
-                        event, values = juego_fa.read()
-                        if event == sg.WIN_CLOSED:
-                            break
-
-def a_inicio():
-    return menu_inicio()
 
 try:
     while True:
