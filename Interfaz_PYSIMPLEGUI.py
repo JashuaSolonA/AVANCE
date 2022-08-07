@@ -46,6 +46,8 @@ def hacer_juego_fa():
         ]
     return sg.Window("Juego en clave de fa", ly_fa)
 
+def a_inicio():
+    pass
 # Creación de las ventanas
 saludo = hacer_saludo()
 inicio = hacer_inicio()
@@ -85,7 +87,7 @@ try:
                         if event == "Regresar al menú inicio":
                             elegir.close()
                             inicio = hacer_inicio()
-                            x = a_inicio()
+                            x = a_inicio()  #era error? weno si lo era, lo puse arriba esa funcion con un pass 
                         if event == "sol":
                             elegir.close()
                             while True:
