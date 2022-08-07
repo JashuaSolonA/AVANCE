@@ -46,8 +46,6 @@ def hacer_juego_fa():
         ]
     return sg.Window("Juego en clave de fa", ly_fa)
 
-def a_inicio():
-    pass
 # Creación de las ventanas
 saludo = hacer_saludo()
 inicio = hacer_inicio()
@@ -74,20 +72,12 @@ try:
                         event, values = aprender.read()
                         if event == "Salir de la aplicación" or event == sg.WIN_CLOSED:
                             break
-                        if event == "Regresar al menú inicio":
-                            aprender.close()
-                            inicio = hacer_inicio() 
-                            event, values = inicio.read()
                 elif event == "Pon en práctica tus conocimientos":
                     inicio.close()
                     while True:
                         event, values = elegir.read()
                         if event == "Salir de la aplicación" or event == sg.WIN_CLOSED:
                             break
-                        if event == "Regresar al menú inicio":
-                            elegir.close()
-                            inicio = hacer_inicio()
-                            x = a_inicio()  #era error? weno si lo era, lo puse arriba esa funcion con un pass 
                         if event == "sol":
                             elegir.close()
                             while True:
