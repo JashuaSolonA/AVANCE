@@ -4,10 +4,7 @@ from tkinter import *
 from tkinter import ttk
 import tkinter
 from turtle import bgcolor
-from matplotlib.pyplot import gray
 from setuptools import Command
-import sounddevice as sd
-import numpy as np
 import pygame
 from PIL import ImageTk, Image
 

@@ -14,15 +14,13 @@ pygame.display.set_caption('Musica')
 Imagen = pygame.image.load('mariobros.png')
 pygame.display.set_icon(Imagen)
 
-fondo = 'mariobros.png'
-fondo_original = pygame.image.load(fondo)
-fondo_redimensionada = pygame.transform.scale(fondo_original, size)
-
-VENTANA.blit(fondo_redimensionada,(0,0))
+fondo = pygame.image.load('mariobros_redimensionada.png')
+VENTANA.blit(fondo,(0,0))
 
 ejecuta = True
 
 while ejecuta:
+    pygame.display.update()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             ejecuta = False
