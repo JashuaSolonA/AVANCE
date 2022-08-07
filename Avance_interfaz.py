@@ -4,7 +4,7 @@ import PySimpleGUI as sg
 
 pygame.mixer.init(frequency=44100)
 
-pygame.mixer.music.load('ringtones-super-mario-bros.mp3')
+pygame.mixer.music.load('recursos2/ringtones-super-mario-bros.mp3')
 pygame.mixer.music.play(-1)
 pygame.mixer.music.set_volume(1.0)
 
@@ -12,10 +12,10 @@ size = 800, 600
 
 VENTANA = pygame.display.set_mode(size)
 pygame.display.set_caption('Musica')
-Imagen = pygame.image.load('mariobros.png')
+Imagen = pygame.image.load('recursos2/mariobros.png')
 pygame.display.set_icon(Imagen)
 
-fondo = pygame.image.load('mariobros_redimensionada.png')
+fondo = pygame.image.load('recursos2/mariobros_redimensionada.png')
 VENTANA.blit(fondo,(0,0))
 
 ejecuta = True
@@ -60,9 +60,9 @@ while ejecuta:
 
     def hacer_aprender():
         ly_aprender = [ [sg.Text("Estas son las notas ubicadas en el pentagrama en clave de sol:")],
-                [sg.Image("clave_de_sol.png")],
+                [sg.Image("recursos2/clave_de_sol.png")],
                 [sg.Text("Estas son las notas ubicadas en el pentagrama en clave de fa:")],
-                [sg.Image("clave_de_fa.png")],
+                [sg.Image("recursos2/clave_de_fa.png")],
                 [sg.Button("Salir de la aplicación")]
                 ]
         return sg.Window("Aprende la ubicación de las notas musicales", ly_aprender)
